@@ -12,4 +12,6 @@ RUN curl -sSfL https://get.tur.so/install.sh | bash
 
 ENV PATH=/root/.turso:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-ENTRYPOINT ["turso"]
+COPY docker-entrypoint /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint"]
